@@ -3,6 +3,24 @@ import ReactDOM from 'react-dom/client';
 import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
+import { Amplify } from 'aws-amplify';
+
+Amplify.configure({
+  Auth: {
+    region: "us-east-2",
+    userPoolId: "us-east-2_7xgpZuus7",
+    userPoolWebClientId: "30c5rojl7lbs9g265b3qmkfkl1",
+  },
+  API: {
+    endpoints: [
+      {
+        name: "movies",
+        endpoint:
+          "https://tan9apsup1.execute-api.us-east-2.amazonaws.com/default",
+      },
+    ],
+  }
+});
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
